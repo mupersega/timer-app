@@ -1,0 +1,16 @@
+<div>
+    Create a new timer
+    <form (ngSubmit)="onSubmit()" #timerForm="ngForm">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" required [(ngModel)]="timer.name" name="name">
+        </div>
+        <div>
+            <label for="duration">Minutes</label>
+            <input type="number" id="duration" required [(ngModel)]="timer.duration" name="duration">
+            <button type="button" *ngFor="let increment of increments" class="quick-time" (click)="incrementDuration(increment)">{{increment.display}}</button>
+            <button type="button" class="quick-time">!</button>
+        </div>
+        <button type="submit" [disabled]="!timerForm.form.valid">Create</button>
+    </form>
+</div>
